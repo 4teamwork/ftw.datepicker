@@ -1,0 +1,36 @@
+<link media="screen" type="text/css" href="++resource++jquery.ui/themes/base/ui.core.css" rel="stylesheet">
+<link media="screen" type="text/css" href="++resource++jquery.ui/themes/base/ui.theme.css" rel="stylesheet">
+<link media="screen" type="text/css" href="++resource++jquery.ui/themes/base/ui.datepicker.css" rel="stylesheet">
+<script type="text/javascript" src="++resource++jquery.ui/ui/minified/i18n/ui.datepicker-de.min.js"></script>
+<input type="text" id="" name="" class="" title="" lang="" disabled=""
+       readonly="" alt="" tabindex="" accesskey="" size="" maxlength=""
+       tal:attributes="id view/id;
+                       name view/name;
+                       class view/klass;
+                       style view/style;
+                       title view/title;
+                       lang view/lang;
+                       onclick view/onclick;
+                       ondblclick view/ondblclick;
+                       onmousedown view/onmousedown;
+                       onmouseup view/onmouseup;
+                       onmouseover view/onmouseover;
+                       onmousemove view/onmousemove;
+                       onmouseout view/onmouseout;
+                       onkeypress view/onkeypress;
+                       onkeydown view/onkeydown;
+                       onkeyup view/onkeyup;
+                       value view/value;
+                       disabled view/disabled;
+                       tabindex view/tabindex;
+                       onfocus view/onfocus;
+                       onblur view/onblur;
+                       onchange view/onchange;
+                       readonly view/readonly;
+                       alt view/alt;
+                       accesskey view/accesskey;
+                       onselect view/onselect;
+                       size view/size;
+                       maxlength view/maxlength" />
+<script type="text/javascript" tal:content="structure view/datepicker_javascript">
+</script>

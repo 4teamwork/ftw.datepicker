@@ -1,0 +1,5 @@
+# created by: svn propset svn:ignore -F ./IGNORE.txt .
+
+ftw.datepicker.egg-info
+build
+dist

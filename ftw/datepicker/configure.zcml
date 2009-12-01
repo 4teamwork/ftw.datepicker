@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ftw.datepicker">
+
+    <include package="plone.z3cform" />
+    <include package="collective.jqueryui" />
+
+    <class class=".widget.DatePickerWidget">
+        <require permission="zope.Public"
+                 interface=".interfaces.IDatePickerWidget" />
+    </class>
+
+    <adapter factory=".widget.DatePickerFieldWidget" />
+    <adapter factory=".converter.DateDataConverter" />
+
+    <z3c:widgetTemplate
+        mode="input"
+        widget=".interfaces.IDatePickerWidget"        
+        layer="z3c.form.interfaces.IFormLayer"
+        template="datepicker_input.pt" />
+
+</configure>
