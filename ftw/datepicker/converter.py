@@ -3,14 +3,14 @@ from zope.component import adapts
 from zope.schema.interfaces import IDate
 from ftw.datepicker.interfaces import IDatePickerWidget
 from zope.i18n.format import DateTimeParseError
+from zope.i18n.format import DateTimeFormat
 from z3c.form.converter import FormatterValidationError
 
 class DateDataConverter(converter.BaseDataConverter):
     """A special data converter for calendar-related values."""
 
     adapts(IDate, IDatePickerWidget)
-    
-    type = None
+
     lengths = [u'long', u'medium', u'short']
     
 
@@ -18,6 +18,8 @@ class DateDataConverter(converter.BaseDataConverter):
         super(DateDataConverter, self).__init__(field, widget)
         locale = self.widget.request.locale
         self.formatters = [locale.dates.getFormatter(u'date', length) for length in self.lengths]
+        # a formatter that can parse single digit days and months
+        self.formatters.append(DateTimeFormat(pattern='d.M.yy', calendar='gregorian'))
         
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""

@@ -1,0 +1,47 @@
+Date Data Converter
+-------------------
+Setup swiss german locale
+
+>>> import os
+>>> import zope.i18n
+>>> from zope.i18n.locales.provider import LocaleProvider
+>>> datadir = os.path.join(os.path.dirname(zope.i18n.__file__), 'locales', 'data')
+>>> provider = LocaleProvider(datadir)
+>>> locale = provider.getLocale('de', 'CH')
+>>> locale is not None
+True
+
+Setup a text widget and a date field
+
+>>> import zope.schema
+>>> from ftw.datepicker import converter
+>>> from z3c.form.testing import TestRequest
+>>> from z3c.form import widget
+>>> request = TestRequest()
+>>> request._locale = locale
+>>> text = widget.Widget(request)
+>>> 
+>>> date = zope.schema.Date()
+>>> ddc = converter.DateDataConverter(date, text)
+>>> ddc
+<DateDataConverter converts from Date to Widget>
+
+Dates are simply converted to long format
+>>> import datetime
+>>> ddc.toWidgetValue(datetime.date(1973, 5, 20))
+u'20. Mai 1973'
+
+Now lets test parsing of various input strings
+
+>>> ddc.toFieldValue(u'20.05.1973')
+datetime.date(1973, 5, 20)
+
+>>> ddc.toFieldValue(u'20.05.73')
+datetime.date(1973, 5, 20)
+
+>>> ddc.toFieldValue(u'20. Mai 1973')
+datetime.date(1973, 5, 20)
+
+>>> ddc.toFieldValue(u'20.5.73')
+datetime.date(1973, 5, 20)
+
