@@ -45,3 +45,6 @@ datetime.date(1973, 5, 20)
 >>> ddc.toFieldValue(u'20.5.73')
 datetime.date(1973, 5, 20)
 
+>>> ddc.toFieldValue(u'20.5.1973')
+datetime.date(1973, 5, 20)
+
