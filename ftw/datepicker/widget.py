@@ -31,7 +31,7 @@ class DatePickerWidget(widget.HTMLTextInputWidget, Widget):
                     buttonImageOnly: true,
                     dateFormat: 'd. MM yy',
                     changeMonth: true,
-                    changeYear: true,
+                    changeYear: true
                 });
             });        
             /* ]]> */""" % dict(id=self.id,
