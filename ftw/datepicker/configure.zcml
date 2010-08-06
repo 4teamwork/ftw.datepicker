@@ -4,8 +4,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ftw.datepicker">
 
-    <include package="plone.z3cform" />
-    <include package="collective.jqueryui" />
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
 
     <class class=".widget.DatePickerWidget">
         <require permission="zope.Public"

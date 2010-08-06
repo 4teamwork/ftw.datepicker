@@ -25,12 +25,12 @@ setup(name='ftw.datepicker',
       install_requires=[
           'setuptools',
           'plone.z3cform',
-          'collective.jqueryui',
+          'collective.js.jqueryui',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
-      target = opengever
+      target = plone
       """,
       )
