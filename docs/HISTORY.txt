@@ -5,6 +5,9 @@ Changelog
 1.0a3
 -----
 
+* Changed old css loads to new ones (collective.js.jqueryui)
+  [16.09.2010, jbaumann]
+
 
 1.0a2
 -----
