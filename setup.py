@@ -25,7 +25,9 @@ setup(name='ftw.datepicker',
       install_requires=[
           'setuptools',
           'plone.z3cform',
+          'plone.app.z3cform>=0.5.1'
           'collective.js.jqueryui',
+          'plone.browserlayer',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
