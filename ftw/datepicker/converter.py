@@ -18,10 +18,9 @@ class DateDataConverter(converter.BaseDataConverter):
         super(DateDataConverter, self).__init__(field, widget)
         locale = self.widget.request.locale
         self.formatters = [locale.dates.getFormatter(u'date', length) for length in self.lengths]
-        # a formatter that can parse single digit days and months
+        # a formatter that can parse single digit days and month
         self.formatters.append(DateTimeFormat(pattern='d.M.yyyy', calendar='gregorian'))
         self.formatters.append(DateTimeFormat(pattern='d.M.yy', calendar='gregorian'))
-        
         
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""
@@ -31,6 +30,7 @@ class DateDataConverter(converter.BaseDataConverter):
 
     def toFieldValue(self, value):
         """See interfaces.IDataConverter"""
+        value =  ' '.join([word.capitalize() for word in value.split(' ')])
         if value == u'':
             return self.field.missing_value
         # we try multiple parsers, the first one that can parse the date string wins
