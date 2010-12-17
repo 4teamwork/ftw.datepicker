@@ -5,6 +5,8 @@ Changelog
 1.0a6
 -----
 
+* fixed bug that ftw.datepicker fails when a date is lowercase
+  [ttschanz]
 
 1.0a5
 -----
