@@ -3,12 +3,15 @@
       xmlns:z3c="http://namespaces.zope.org/z3c"
       xmlns:browser="http://namespaces.zope.org/browser"
       xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+	  xmlns:i18n="http://namespaces.zope.org/i18n"
       i18n_domain="ftw.datepicker">
 
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
-
-    <genericsetup:registerProfile
+	
+	<i18n:registerTranslations directory="locales" />
+    
+	<genericsetup:registerProfile
           name="default"
           title="ftw.datepicker"
           directory="profiles/default"

@@ -5,7 +5,7 @@ from ftw.datepicker.interfaces import IDatePickerWidget
 from zope.i18n.format import DateTimeParseError
 from zope.i18n.format import DateTimeFormat
 from z3c.form.converter import FormatterValidationError
-
+from ftw.datepicker import _
 class DateDataConverter(converter.BaseDataConverter):
     """A special data converter for calendar-related values."""
 
@@ -30,6 +30,7 @@ class DateDataConverter(converter.BaseDataConverter):
 
     def toFieldValue(self, value):
         """See interfaces.IDataConverter"""
+        translate = self.widget.form.context.translate
         value =  ' '.join([word.capitalize() for word in value.split(' ')])
         if value == u'':
             return self.field.missing_value
@@ -39,4 +40,5 @@ class DateDataConverter(converter.BaseDataConverter):
                 return formatter.parse(value)
             except DateTimeParseError, err:
                 pass
-        raise FormatterValidationError(err.args[0], value)
+        error = translate(_("error_datetime_parse", default=err.args[0]))
+        raise FormatterValidationError(error, value)
