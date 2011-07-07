@@ -12,7 +12,7 @@ class DateDataConverter(converter.BaseDataConverter):
     adapts(IDate, IDatePickerWidget)
 
     lengths = [u'long', u'medium', u'short']
-    
+
 
     def __init__(self, field, widget):
         super(DateDataConverter, self).__init__(field, widget)
@@ -21,7 +21,7 @@ class DateDataConverter(converter.BaseDataConverter):
         # a formatter that can parse single digit days and month
         self.formatters.append(DateTimeFormat(pattern='d.M.yyyy', calendar='gregorian'))
         self.formatters.append(DateTimeFormat(pattern='d.M.yy', calendar='gregorian'))
-        
+
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""
         if value is self.field.missing_value:
@@ -29,8 +29,8 @@ class DateDataConverter(converter.BaseDataConverter):
         return self.formatters[0].format(value)
 
     def toFieldValue(self, value):
+
         """See interfaces.IDataConverter"""
-        translate = self.widget.form.context.translate
         value =  ' '.join([word.capitalize() for word in value.split(' ')])
         if value == u'':
             return self.field.missing_value
@@ -40,5 +40,6 @@ class DateDataConverter(converter.BaseDataConverter):
                 return formatter.parse(value)
             except DateTimeParseError, err:
                 pass
+        translate = self.widget.form.context.translate
         error = translate(_("error_datetime_parse", default=err.args[0]))
         raise FormatterValidationError(error, value)

@@ -20,7 +20,8 @@ Setup a text widget and a date field
 >>> request = TestRequest()
 >>> request._locale = locale
 >>> text = widget.Widget(request)
->>> 
+>>> text.form = zope.schema.Field()
+>>>
 >>> date = zope.schema.Date()
 >>> ddc = converter.DateDataConverter(date, text)
 >>> ddc
