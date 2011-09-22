@@ -5,6 +5,10 @@ Changelog
 1.0a9
 -----
 
+* Issue #1176 alle translatinos mit from zope.i18n import translate
+  https://extranet.4teamwork.ch/projects/opengever-kanton-zug/sprint-backlog/1176
+  [eschmutz]
+
 * added test-buildout for plone 4.1
   [eschmutz]
 
@@ -28,7 +32,7 @@ Changelog
 
 1.0a5
 -----
-* Removed inline import of jquery.ui.all.css and installing 
+* Removed inline import of jquery.ui.all.css and installing
   collective.js.jqueryui on installation instead
   [01.12.2010, fsprenger]
 
