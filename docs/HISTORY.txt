@@ -2,37 +2,45 @@ Changelog
 =========
 
 
-1.0a9
------
+1.0a10 (unreleased)
+-------------------
 
-* Issue #1176 alle translatinos mit from zope.i18n import translate
+- Fixed changelog, and make it zest.releaser friendly.
+  [phgross]
+
+
+1.0a9 (2011-09-29)
+------------------
+
+- Issue #1176 alle translatinos mit from zope.i18n import translate
   https://extranet.4teamwork.ch/projects/opengever-kanton-zug/sprint-backlog/1176
   [eschmutz]
 
-* added test-buildout for plone 4.1
+- added test-buildout for plone 4.1
   [eschmutz]
 
 1.0a8
 -----
 
-* fixed test: added zope.schema.Field() to text.form
+- fixed test: added zope.schema.Field() to text.form
   [7.7.2011, elio.schmutz]
 
 1.0a7
 -----
 
-* added Translation for DateTimeParseError
+- added Translation for DateTimeParseError
   [ttschanz]
 
 1.0a6
 -----
 
-* fixed bug that ftw.datepicker fails when a date is lowercase
+- fixed bug that ftw.datepicker fails when a date is lowercase
   [ttschanz]
 
 1.0a5
 -----
-* Removed inline import of jquery.ui.all.css and installing
+
+- Removed inline import of jquery.ui.all.css and installing
   collective.js.jqueryui on installation instead
   [01.12.2010, fsprenger]
 
@@ -43,18 +51,8 @@ Changelog
 1.0a3
 -----
 
-* When installing the profile, the datepicker is configured as default widget.
+- When installing the profile, the datepicker is configured as default widget.
   [jbaumann]
-
-1.0a10 (unreleased)
-                   
-
-- Nothing changed yet.
-
-
-1.0a9 (2011-09-29)
-  [16.09.2010, jbaumann]
-
 
 1.0a2
 -----
@@ -63,4 +61,4 @@ Changelog
 1.0
 ---
 
-* Initial release
+- Initial release
