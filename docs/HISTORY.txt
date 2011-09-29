@@ -46,6 +46,12 @@ Changelog
 * When installing the profile, the datepicker is configured as default widget.
   [jbaumann]
 
+1.0a10 (unreleased)
+                   
+
+- Nothing changed yet.
+
+
 1.0a9 (2011-09-29)
   [16.09.2010, jbaumann]
 
