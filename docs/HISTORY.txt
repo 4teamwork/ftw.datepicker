@@ -46,7 +46,7 @@ Changelog
 * When installing the profile, the datepicker is configured as default widget.
   [jbaumann]
 
-* Changed old css loads to new ones (collective.js.jqueryui)
+1.0a9 (2011-09-29)
   [16.09.2010, jbaumann]
 
 
