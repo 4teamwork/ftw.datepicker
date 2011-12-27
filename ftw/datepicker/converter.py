@@ -20,8 +20,10 @@ class DateDataConverter(converter.BaseDataConverter):
         locale = self.widget.request.locale
         self.formatters = [locale.dates.getFormatter(u'date', length) for length in self.lengths]
         # a formatter that can parse single digit days and month
-        self.formatters.append(DateTimeFormat(pattern='d.M.yyyy', calendar='gregorian'))
-        self.formatters.append(DateTimeFormat(pattern='d.M.yy', calendar='gregorian'))
+        self.formatters.append(DateTimeFormat(pattern='d.M.yyyy',
+                                              calendar='gregorian'))
+        self.formatters.append(DateTimeFormat(pattern='d.M.yy',
+                                              calendar='gregorian'))
 
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""
@@ -31,13 +33,25 @@ class DateDataConverter(converter.BaseDataConverter):
 
     def toFieldValue(self, value):
         """See interfaces.IDataConverter"""
-        value =  ' '.join([word.capitalize() for word in value.split(' ')])
         if value == u'':
             return self.field.missing_value
-        # we try multiple parsers, the first one that can parse the date string wins
+
+        value =  ' '.join([word.lower().capitalize()
+                           for word in value.split(' ')])
+        value_lowercase = value.lower()
+
+        # we try multiple parsers, the first one that can parse the
+        # date string wins
         for formatter in self.formatters:
+            # for german the month name has to be uppercase ..
             try:
                 return formatter.parse(value)
+            except DateTimeParseError, err:
+                pass
+
+            # .. but for french it has to be lowercase
+            try:
+                return formatter.parse(value_lowercase)
             except DateTimeParseError, err:
                 pass
 

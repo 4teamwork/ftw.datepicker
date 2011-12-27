@@ -5,7 +5,8 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix date parsing for french language (support lowercase month names).
+  [jone]
 
 
 1.0 (2011-11-17)
