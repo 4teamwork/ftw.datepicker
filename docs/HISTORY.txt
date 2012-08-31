@@ -5,7 +5,10 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Converter: Added additional date form patterns for swiss-french format.
+  Issue #223 Kalender in der franz. Version
+  https://extranet.4teamwork.ch/support/ph-vs/tracker/223
+  [philippegross]
 
 
 1.0.1 (2012-02-24)
