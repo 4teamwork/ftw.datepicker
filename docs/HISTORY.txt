@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.2 (unreleased)
+1.0.2 (2012-09-11)
 ------------------
 
 - Converter: Added additional date form patterns for swiss-french format.
