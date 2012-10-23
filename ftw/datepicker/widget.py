@@ -16,7 +16,7 @@ class DatePickerWidget(widget.HTMLTextInputWidget, Widget):
 
     klass = u'datepicker-widget'
     size = 20
-    
+
     def update(self):
         super(DatePickerWidget, self).update()
         widget.addFieldClass(self)
@@ -24,8 +24,8 @@ class DatePickerWidget(widget.HTMLTextInputWidget, Widget):
 
     def datepicker_javascript(self):
         return """/* <![CDATA[ */
-            jq(function() {
-                jq("#%(id)s").datepicker({
+            $(function() {
+                $("#%(id)s").datepicker({
                     showOn: 'button',
                     buttonImage: '%(buttonImage)s',
                     buttonImageOnly: true,
@@ -33,7 +33,7 @@ class DatePickerWidget(widget.HTMLTextInputWidget, Widget):
                     changeMonth: true,
                     changeYear: true
                 });
-            });        
+            });
             /* ]]> */""" % dict(id=self.id,
                                 buttonImage='%s/popup_calendar.gif' % self.portal_url())
 
