@@ -12,9 +12,10 @@ tests_require = [
 setup(name='ftw.datepicker',
       version=version,
       description="A z3c.form datepicker widget (Maintainer %s)" % maintainer,
+
       long_description=open("README.rst").read() + "\n" + \
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+
       classifiers=[
         'Framework :: Plone',
         'Framework :: Plone :: 4.0',
@@ -24,16 +25,19 @@ setup(name='ftw.datepicker',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         ],
+
       keywords='ftw 4teamwork widget date picker',
       author='%s, 4teamwork AG' % maintainer,
       author_email='mailto:info@4teamwork.ch',
       maintainer=maintainer,
       url='http://psc.4teamwork.ch/dist/ftw-datepicker/',
+
       license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['ftw'],
       include_package_data=True,
       zip_safe=False,
+
       install_requires=[
           'z3c.form',
           'setuptools',
@@ -42,10 +46,12 @@ setup(name='ftw.datepicker',
           'collective.js.jqueryui',
           # -*- Extra requirements: -*-
       ],
+
       extras_require=dict(
           tests=tests_require,
           ),
       tests_require=tests_require,
+
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
