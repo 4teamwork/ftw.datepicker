@@ -9,3 +9,10 @@ Links
 
 - Main github project repository: https://github.com/4teamwork/ftw.datepicker
 - Issue tracker: https://github.com/4teamwork/ftw.datepicker/issues
+
+Copyright
+---------
+
+This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
+
+``ftw.datepicker`` is licensed under GNU General Public License, version 2.
