@@ -10,9 +10,8 @@ from zope.schema.interfaces import IDate
 
 
 ADDITIONAL_PATTERNS = {
-    'fr': [u'd. MMMM yyyy',],
-    'de': [u'd.M.yyyy', u'd.M.yy']
-    }
+    'fr': [u'd. MMMM yyyy', ],
+    'de': [u'd.M.yyyy', u'd.M.yy']}
 
 
 class DateDataConverter(converter.BaseDataConverter):
@@ -32,7 +31,6 @@ class DateDataConverter(converter.BaseDataConverter):
                     pattern=pattern,
                     calendar=locale.dates.calendars.get('gregorian')))
 
-
     def toWidgetValue(self, value):
         """See interfaces.IDataConverter"""
         if value is self.field.missing_value:
@@ -44,7 +42,7 @@ class DateDataConverter(converter.BaseDataConverter):
         if value == u'':
             return self.field.missing_value
 
-        value =  ' '.join([word.lower().capitalize()
+        value = ' '.join([word.lower().capitalize()
                            for word in value.split(' ')])
         value_lowercase = value.lower()
 
