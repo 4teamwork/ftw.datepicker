@@ -9,6 +9,7 @@ Links
 
 - Main github project repository: https://github.com/4teamwork/ftw.datepicker
 - Issue tracker: https://github.com/4teamwork/ftw.datepicker/issues
+- Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.datepicker
 
 Copyright
 ---------
