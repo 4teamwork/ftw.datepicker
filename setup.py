@@ -30,7 +30,7 @@ setup(name='ftw.datepicker',
       author='%s, 4teamwork AG' % maintainer,
       author_email='mailto:info@4teamwork.ch',
       maintainer=maintainer,
-      url='http://psc.4teamwork.ch/dist/ftw-datepicker/',
+      url='https://github.com/4teamwork/ftw.datepicker',
 
       license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
