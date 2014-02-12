@@ -35,11 +35,11 @@ class DatePickerWidget(widget.HTMLTextInputWidget, Widget):
                 });
             });
             /* ]]> */""" % dict(id=self.id,
-                                buttonImage='%s/popup_calendar.gif' % self.portal_url())
+                    buttonImage='%s/popup_calendar.gif' % self.portal_url())
+
 
 @adapter(IDatePickerWidget, IFormLayer)
 @implementer(IFieldWidget)
 def DatePickerFieldWidget(field, request):
-   """IFieldWidget factory for DatePickerFieldWidget."""
-   return FieldWidget(field, DatePickerWidget(request))
-
+    """IFieldWidget factory for DatePickerFieldWidget."""
+    return FieldWidget(field, DatePickerWidget(request))
