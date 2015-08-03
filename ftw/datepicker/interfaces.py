@@ -3,10 +3,8 @@ from zope.interface import Interface
 
 
 class IBrowserLayer(Interface):
-    """ftw.datepicker browser layer
-    """
+    """ftw.datepicker browser layer"""
 
 
-class IDatePickerWidget(ITextWidget):
-    """A datepicker widget.
-    """
+class IDateTimePickerWidget(ITextWidget):
+    """Marker interface for datetimepicker widget"""
