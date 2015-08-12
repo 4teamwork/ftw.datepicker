@@ -8,6 +8,9 @@ from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import implementsOnly
 import json
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
+from ftw.datepicker.interfaces import IDatetimeRegistry
 
 
 class DateTimePickerWidget(widget.HTMLTextInputWidget, Widget):
@@ -24,8 +27,9 @@ class DateTimePickerWidget(widget.HTMLTextInputWidget, Widget):
         if callable(config):
             self.config = config()
         elif not config:
-            self.config = {'format': 'd.m.Y H:i'}
-
+            registry = getUtility(IRegistry)
+            datesettings = registry.forInterface(IDatetimeRegistry)
+            self.config = datesettings.formats
         self.validate_config()
 
     def update(self):

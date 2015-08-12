@@ -6,6 +6,8 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
 from zope.configuration import xmlconfig
+from Products.CMFCore.utils import getToolByName
+import transaction
 
 
 class FtwDatepickerLayer(PloneSandboxLayer):
@@ -28,7 +30,10 @@ class FtwDatepickerLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
+        switch_language(portal, 'de')
+        applyProfile(portal, 'plone.app.registry:default')
         applyProfile(portal, 'ftw.datepicker:default')
+
 
 FTW_DATEPICKER_FIXTURE = FtwDatepickerLayer()
 
@@ -36,3 +41,12 @@ FTW_DATEPICKER_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FTW_DATEPICKER_FIXTURE,
            set_builder_session_factory(functional_session_factory)),
     name="ftw.datepicker:functional")
+
+
+def switch_language(portal, lang):
+    language_tool = getToolByName(portal, 'portal_languages')
+    language_tool.manage_setLanguageSettings(
+        lang, ['de', 'fr', 'en'],
+        setUseCombinedLanguageCodes=False, startNeutral=False)
+    portal.setLanguage(lang)
+    transaction.commit()

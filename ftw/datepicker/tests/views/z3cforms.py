@@ -13,9 +13,11 @@ import json
 class ITaskFormSchema(Interface):
     due_date = schema.Datetime(
         title=u'Due Date',
-        required=True,
+        required=False,
     )
-
+    publish_date = schema.Date(
+        title=u'Publish Date',
+        required=False)
 
 class TaskForm(Form):
     label = u'Shopping'
@@ -28,6 +30,7 @@ class TaskForm(Form):
 
     def update(self):
         self.fields['due_date'].widgetFactory = DateTimePickerWidgetFactory
+        self.fields['publish_date'].widgetFactory = DateTimePickerWidgetFactory
         return super(TaskForm, self).update()
 
     @buttonAndHandler(u'Submit')
