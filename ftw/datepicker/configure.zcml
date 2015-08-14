@@ -21,6 +21,8 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <include package=".upgrades" />
+
     <class class=".widget.DateTimePickerWidget">
         <require permission="zope.Public"
                  interface=".interfaces.IDateTimePickerWidget" />
