@@ -2,7 +2,7 @@ ftw.datepicker
 ==============
 
 `ftw.datepicker` provides a datepicker widget for your `z3c.form` fields
-using the JQuery based `DateTimePicker` widget from XDSoft
+using the jQuery based `DateTimePicker` widget from XDSoft
 (http://xdsoft.net/jqplugins/datetimepicker/).
 
 
@@ -63,6 +63,14 @@ is then converted to a JSON object and passed to the template for the widget
 to be picked up. Example: `{'format': 'd.m.Y', 'timepicker': False}`.
 
 See http://xdsoft.net/jqplugins/datetimepicker/ for a full list of options.
+
+
+Development
+-----------
+
+The jQuery plugin can be downloaded and extracted into its own folder inside
+`ftw/datepicker/resources/js`. Only the files defined in the profile's
+CSS and JS registry will be used.
 
 
 Compatibility
