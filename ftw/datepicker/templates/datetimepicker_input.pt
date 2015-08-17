@@ -1,5 +1,4 @@
-<input type="text" id="" name="" class="" title="" lang="" disabled=""
-       readonly="" alt="" tabindex="" accesskey="" size="" maxlength=""
+<input type="text"
        tal:attributes="id view/id;
                        name view/name;
                        class view/klass;
@@ -27,6 +26,5 @@
                        accesskey view/accesskey;
                        onselect view/onselect;
                        size view/size;
-                       maxlength view/maxlength" />
-<script type="text/javascript" tal:content="structure view/datepicker_javascript">
-</script>
+                       maxlength view/maxlength;
+                       data-datetimewidget view/datetimepicker_config" />

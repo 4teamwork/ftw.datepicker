@@ -5,9 +5,13 @@ version = '1.0.6.dev0'
 maintainer = 'Thomas Buchberger'
 
 tests_require = [
-	'z3c.form[test]',
-	'collective.testcaselayer',
-            ]
+    'collective.testcaselayer',
+    'ftw.builder',
+    'ftw.testbrowser',
+    'plone.app.testing',
+    'plone.testing',
+    'z3c.form[test]',
+]
 
 setup(name='ftw.datepicker',
       version=version,
@@ -39,12 +43,12 @@ setup(name='ftw.datepicker',
       zip_safe=False,
 
       install_requires=[
-          'z3c.form',
-          'setuptools',
-          'plone.z3cform',
-          'plone.app.z3cform>=0.5.0',
           'collective.js.jqueryui',
-          # -*- Extra requirements: -*-
+          'ftw.upgrade',
+          'plone.app.z3cform>=0.5.1',
+          'plone.z3cform',
+          'setuptools',
+          'z3c.form',
       ],
 
       extras_require=dict(
