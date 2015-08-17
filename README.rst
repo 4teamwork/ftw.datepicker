@@ -1,8 +1,8 @@
 ftw.datepicker
 ==============
 
-`ftw.datepicker` provides a datepicker widget for your `z3c.form` fields
-using the jQuery based `DateTimePicker` widget from XDSoft
+`ftw.datepicker` provides a date/time picker widget for your `z3c.form`
+fields using the jQuery based `DateTimePicker` widget from XDSoft
 (http://xdsoft.net/jqplugins/datetimepicker/).
 
 
@@ -63,6 +63,8 @@ is then converted to a JSON object and passed to the template for the widget
 to be picked up. Example: `{'format': 'd.m.Y', 'timepicker': False}`.
 
 See http://xdsoft.net/jqplugins/datetimepicker/ for a full list of options.
+
+You could apply the widget even to a `TextLine` field if you need to.
 
 
 Development
