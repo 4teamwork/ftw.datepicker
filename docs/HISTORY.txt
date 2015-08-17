@@ -5,6 +5,9 @@ Changelog
 1.0.6 (unreleased)
 ------------------
 
+- Make it possible to use different dateformats depending on the current language.
+  [tschanzt]
+
 - Use DateTimePicker widget from XDSoft which also supports time picking
   (http://xdsoft.net/jqplugins/datetimepicker/).
   Attention: Support for Plone 4.0.x has been dropped.

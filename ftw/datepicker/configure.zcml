@@ -30,6 +30,7 @@
 
     <adapter factory=".widget.DateTimePickerWidgetFactory" />
     <adapter factory=".converter.DateTimeDataConverter" />
+    <adapter factory=".converter.DateDataConverter" />
 
     <z3c:widgetTemplate
         mode="input"

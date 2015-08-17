@@ -1,4 +1,4 @@
-from datetime import datetime, time
+from datetime import datetime
 from ftw.datepicker.converter import DateTimeDataConverter, transform_js_format
 from ftw.datepicker.tests import FunctionalTestCase
 from ftw.datepicker.widget import DateTimePickerWidget
@@ -7,17 +7,16 @@ from z3c.form.testing import TestRequest
 from zope import schema
 
 
-class TestConverter(FunctionalTestCase):
+class TestDatetimeConverter(FunctionalTestCase):
 
     def setUp(self):
-        super(TestConverter, self).setUp()
-
+        super(TestDatetimeConverter, self).setUp()
         request = TestRequest()
+
         datetime_field = schema.Datetime()
 
         widget = DateTimePickerWidget(request)
         widget.form = schema.Field()
-
         self.converter = DateTimeDataConverter(datetime_field, widget)
 
     def test_toWidgetValue_with_german_js_format_by_default(self):

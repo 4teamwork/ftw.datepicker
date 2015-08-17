@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-12 14:44+0000\n"
+"POT-Creation-Date: 2015-08-17 12:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,12 +12,25 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: ftw.datepicker\n"
 
-#: ./ftw/datepicker/converter.py:43
+#. Default: "Language"
+#: ./ftw/datepicker/interfaces.py:19
+msgid "datetime_registry_key_type"
+msgstr ""
+
+#. Default: "Formats"
+#: ./ftw/datepicker/interfaces.py:17
+msgid "datetime_registry_title"
+msgstr ""
+
+#. Default: "Date format"
+#: ./ftw/datepicker/interfaces.py:22
+msgid "datetime_registry_value_type"
+msgstr ""
+
+#: ./ftw/datepicker/converter.py:53
 msgid "error_datetime_parse"
 msgstr ""
+
 
