@@ -1,8 +1,8 @@
 from ftw.upgrade import UpgradeStep
 
 
-class AddRegistryForDatetimepicker(UpgradeStep):
-    """Add registry for datetimepicker.
+class InstallNewDateTimePickerWidget(UpgradeStep):
+    """Install new date/time picker widget.
     """
 
     def __call__(self):
