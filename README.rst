@@ -28,6 +28,15 @@ Add ftw.datepicker to your buildout configuration:
 Import the generic setup profile for `ftw.datepicker`.
 
 
+WARNING
+-------
+
+The datetime fields are not timezone aware!
+To implement it, please see how to do it at:
+
+https://github.com/plone/plone.app.event/blob/master/plone/app/event/dx/behaviors.py
+
+
 Usage
 -----
 
