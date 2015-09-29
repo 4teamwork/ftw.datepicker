@@ -11,6 +11,7 @@ tests_require = [
     'plone.app.testing',
     'plone.testing',
     'z3c.form[test]',
+    'unittest2',
 ]
 
 setup(name='ftw.datepicker',
