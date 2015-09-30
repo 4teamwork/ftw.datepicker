@@ -44,6 +44,7 @@ setup(name='ftw.datepicker',
       zip_safe=False,
 
       install_requires=[
+          'Plone',
           'collective.js.jqueryui',
           'ftw.upgrade',
           'plone.app.z3cform>=0.5.1',
