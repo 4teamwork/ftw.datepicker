@@ -5,13 +5,12 @@ version = '1.1.1.dev0'
 maintainer = 'Thomas Buchberger'
 
 tests_require = [
-    'collective.testcaselayer',
     'ftw.builder',
     'ftw.testbrowser',
     'plone.app.testing',
     'plone.testing',
-    'z3c.form[test]',
     'unittest2',
+    'zope.app.testing',
 ]
 
 setup(name='ftw.datepicker',
