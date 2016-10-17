@@ -23,13 +23,18 @@ class DateTimePickerWidget(widget.HTMLTextInputWidget, Widget):
     def __init__(self, request, config=None):
         super(DateTimePickerWidget, self).__init__(request)
 
-        self.config = config
+        self.loaded_config = config
         if callable(config):
-            self.config = config()
-        elif not config:
-            registry = getUtility(IRegistry)
-            datesettings = registry.forInterface(IDatetimeRegistry)
-            self.config = datesettings.formats
+            self.loaded_config = config()
+#        elif not config:
+        registry = getUtility(IRegistry)
+        datesettings = registry.forInterface(IDatetimeRegistry)
+
+        self.config = json.loads(datesettings.various)
+        if self.loaded_config:
+            self.config.update(self.loaded_config)
+
+        self.config['formats'] = datesettings.formats
         self.validate_config()
 
     def update(self):

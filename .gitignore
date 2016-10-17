@@ -10,3 +10,4 @@ bin/
 develop-eggs/
 parts/
 src/
+var/
