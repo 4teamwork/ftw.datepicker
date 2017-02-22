@@ -1,6 +1,7 @@
-from ftw.datepicker.tests import FunctionalTestCase
 from ftw.datepicker.testing import switch_language
+from ftw.datepicker.tests import FunctionalTestCase
 from ftw.testbrowser import browsing
+import json
 
 
 class TestWidget(FunctionalTestCase):
@@ -13,18 +14,24 @@ class TestWidget(FunctionalTestCase):
     @browsing
     def test_config_formats(self, browser):
         browser.login().visit(self.portal, view='test-z3cform-task')
-        due_date = browser.css('#form-widgets-due_date')
-        self.assertIn('"formats": {"fr": "d/m/Y H:i", "de": "d.m.Y H:i"}}',
-                      due_date[0].outerHTML)
+        due_date = browser.css('#form-widgets-due_date').first
+        widgetdata = json.loads(due_date.attrib['data-datetimewidget'])
+        self.assertIn('formats', widgetdata)
+        self.assertEquals({"fr": "d/m/Y H:i", "de": "d.m.Y H:i"},
+                          widgetdata['formats'])
 
     @browsing
     def test_config_firstday(self, browser):
         browser.login().visit(self.portal, view='test-z3cform-task')
-        due_date = browser.css('#form-widgets-due_date')
-        self.assertIn('"dayOfWeekStart": 1', due_date[0].outerHTML)
+        due_date = browser.css('#form-widgets-due_date').first
+        widgetdata = json.loads(due_date.attrib['data-datetimewidget'])
+        self.assertIn('dayOfWeekStart', widgetdata)
+        self.assertEquals(1, widgetdata['dayOfWeekStart'])
 
     @browsing
     def test_config_weekend(self, browser):
         browser.login().visit(self.portal, view='test-z3cform-task')
-        due_date = browser.css('#form-widgets-due_date')
-        self.assertIn('"disabledWeekDays": [5, 6]', due_date[0].outerHTML)
+        due_date = browser.css('#form-widgets-due_date').first
+        widgetdata = json.loads(due_date.attrib['data-datetimewidget'])
+        self.assertIn('disabledWeekDays', widgetdata)
+        self.assertEquals([5, 6], widgetdata['disabledWeekDays'])
