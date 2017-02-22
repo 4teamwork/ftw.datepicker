@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-08-17 12:26+0000\n"
+"POT-Creation-Date: 2017-02-22 07:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
+
+#: ./ftw/datepicker/configure.zcml:19
+msgid "Register ftw.datepicker generally"
+msgstr ""
 
 #. Default: "Language"
 #: ./ftw/datepicker/interfaces.py:19
@@ -29,8 +33,25 @@ msgstr ""
 msgid "datetime_registry_value_type"
 msgstr ""
 
-#: ./ftw/datepicker/converter.py:53
+#. Default: "Min. year is 1900"
+#: ./ftw/datepicker/converter.py:55
+msgid "error_datetime_min_year"
+msgstr ""
+
+#: ./ftw/datepicker/converter.py:61
 msgid "error_datetime_parse"
 msgstr ""
 
+#: ./ftw/datepicker/configure.zcml:19
+msgid "ftw.datepicker"
+msgstr ""
+
+#. Default: "Various"
+#: ./ftw/datepicker/interfaces.py:26
+msgid "registry_various_title"
+msgstr ""
+
+#: ./ftw/datepicker/interfaces.py:27
+msgid "various_desc"
+msgstr ""
 

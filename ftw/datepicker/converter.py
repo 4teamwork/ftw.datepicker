@@ -31,7 +31,7 @@ class BaseDateConverter(converter.BaseDataConverter):
         super(BaseDateConverter, self).__init__(field, widget)
         portal = getSite()
         portal_state = getMultiAdapter((portal, portal.REQUEST),
-            name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
         current_language = portal_state.language()
         widget_format = self.widget.config.get('formats').get(current_language)
         self.transformed_format = transform_js_format(widget_format)
@@ -47,10 +47,22 @@ class BaseDateConverter(converter.BaseDataConverter):
             return None
 
         try:
-            return datetime.strptime(value, self.transformed_format)
+            datetime_obj = datetime.strptime(value, self.transformed_format)
+
+            if datetime_obj.year >= 1900:
+                return datetime_obj
+            else:
+                error = translate(_(u'error_datetime_min_year',
+                                    default=u'Min. year is 1900'),
+                                  context=self.widget.request)
+                raise FormatterValidationError(error, value)
         except ValueError, err:
             pass
-        error = translate(_("error_datetime_parse", default=err.args[0]))
+        error = translate(_("error_datetime_parse",
+                            default=err.args[0],
+                            mapping={'input': value,
+                                     'format': self.transformed_format}),
+                          context=self.widget.request)
         raise FormatterValidationError(error, value)
 
 
