@@ -5,6 +5,9 @@ Changelog
 1.1.3 (unreleased)
 ------------------
 
+- Update translations aka make them work.
+  [mathias.leimgruber]
+
 - Do not allow a year before 1900.
   strftime in python 2.7 does not support years before 1900.
   [mathias.leimgruber]

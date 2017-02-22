@@ -48,4 +48,5 @@ class TestWidget(FunctionalTestCase):
 
         errors = z3cform.erroneous_fields(browser.forms['form'])
         self.assertEquals(['Publish Date'], errors.keys())
-        self.assertEquals(['Min. year is 1900'], errors.values()[0])
+        self.assertEquals(['Ein Datum vor 1900 ist nicht erlaubt.'],
+                          errors.values()[0])
