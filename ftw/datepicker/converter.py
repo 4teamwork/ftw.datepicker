@@ -47,7 +47,12 @@ class BaseDateConverter(converter.BaseDataConverter):
             return None
 
         try:
-            return datetime.strptime(value, self.transformed_format)
+            datetime_obj = datetime.strptime(value, self.transformed_format)
+
+            if datetime_obj.year >= 1900:
+                return datetime_obj
+            else:
+                raise FormatterValidationError('Min. year is 1900', value)
         except ValueError, err:
             pass
         error = translate(_("error_datetime_parse", default=err.args[0]))
