@@ -22,3 +22,6 @@ class IDatetimeRegistry(Interface):
             title=_(u'datetime_registry_value_type', default=u'Date format'),
         )
     )
+
+    various = field.Text(title=_(u'registry_various_title', default=u'Various'),
+                         description=_(u'various_desc'))
