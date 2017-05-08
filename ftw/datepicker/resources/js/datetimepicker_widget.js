@@ -45,4 +45,8 @@ $(function(){
 
   $(document).on("change", ".datetimepicker-widget", initDateTimePicker);
 
+  $(document).on("onLoad OverlayContentReloaded", ".overlay", function() {
+    initDateTimePicker();
+  });
+
 });
