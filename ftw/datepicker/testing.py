@@ -1,6 +1,7 @@
 from ftw.builder.testing import BUILDER_LAYER
 from ftw.builder.testing import functional_session_factory
 from ftw.builder.testing import set_builder_session_factory
+from pkg_resources import get_distribution
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import PLONE_FIXTURE
@@ -9,6 +10,8 @@ from zope.configuration import xmlconfig
 from Products.CMFCore.utils import getToolByName
 import transaction
 
+
+IS_PLONE_5 = get_distribution('Plone').version >= '5'
 
 class FtwDatepickerLayer(PloneSandboxLayer):
 
@@ -33,6 +36,8 @@ class FtwDatepickerLayer(PloneSandboxLayer):
         switch_language(portal, 'de')
         applyProfile(portal, 'plone.app.registry:default')
         applyProfile(portal, 'ftw.datepicker:default')
+        if IS_PLONE_5:
+            applyProfile(portal, 'plone.app.contenttypes:default')
 
 
 FTW_DATEPICKER_FIXTURE = FtwDatepickerLayer()
@@ -45,8 +50,14 @@ FTW_DATEPICKER_FUNCTIONAL_TESTING = FunctionalTesting(
 
 def switch_language(portal, lang):
     language_tool = getToolByName(portal, 'portal_languages')
-    language_tool.manage_setLanguageSettings(
-        lang, ['de', 'fr', 'en'],
-        setUseCombinedLanguageCodes=False, startNeutral=False)
+    if IS_PLONE_5:
+        language_tool.addSupportedLanguage("de")
+        language_tool.addSupportedLanguage("fr")
+        language_tool.settings.use_combined_language_codes = False
+        language_tool.setDefaultLanguage(lang)
+    else:
+        language_tool.manage_setLanguageSettings(
+            lang, ['de', 'fr', 'en'],
+            setUseCombinedLanguageCodes=False, startNeutral=False)
     portal.setLanguage(lang)
     transaction.commit()
