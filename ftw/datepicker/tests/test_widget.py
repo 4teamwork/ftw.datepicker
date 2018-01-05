@@ -10,25 +10,6 @@ class TestWidget(FunctionalTestCase):
         super(TestWidget, self).setUp()
         self.grant('Manager')
 
-    def test_resources_are_installed(self):
-        js_registry = getToolByName(self.portal, 'portal_javascripts')
-
-        self.assertTrue(
-            '++resource++datetimepicker/js/datetimepicker-2.4.5/'
-            'jquery.datetimepicker.js'
-            in js_registry.getResourceIds())
-
-        self.assertTrue(
-            '++resource++datetimepicker/js/datetimepicker_widget.js'
-            in js_registry.getResourceIds())
-
-        css_registry = getToolByName(self.portal, 'portal_css')
-
-        self.assertTrue(
-            '++resource++datetimepicker/js/datetimepicker-2.4.5/'
-            'jquery.datetimepicker.css'
-            in css_registry.getResourceIds())
-
     @browsing
     def test_fill_datetime_field_with_browser(self, browser):
         browser.login().visit(view='test-z3cform-task')

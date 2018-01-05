@@ -4,7 +4,7 @@ ftw.datepicker
 `ftw.datepicker` provides a date/time picker widget for your `z3c.form`
 fields using the jQuery based `DateTimePicker` widget from XDSoft
 (http://xdsoft.net/jqplugins/datetimepicker/). It is compatible with
-Plone 4.3 only.
+Plone 4.3 and 5.1.
 
 
 Screenshot
