@@ -3,6 +3,7 @@
 
     <stylesheet
         id="++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.css"
-        />
+        insert-after="++resource++datetimepicker/js/datetimepicker-2.4.5/jquery.datetimepicker.css" />
+    <stylesheet id="++resource++datetimepicker/js/datetimepicker-2.4.5/jquery.datetimepicker.css" remove="True" />
 
 </object>
