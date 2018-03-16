@@ -31,3 +31,12 @@ class TestWidget(FunctionalTestCase):
         browser.fill({u'Publish Date': u'24.06.2015'})
         browser.find('Submit').click()
         self.assertEquals({u'publish_date': u'2015-06-24'}, browser.json)
+
+    @browsing
+    def test_fallback_on_language_specific_local(self, browser):
+        switch_language(self.layer['portal'], 'fr-ch')
+
+        browser.login().visit(view='test-z3cform-task')
+        browser.fill({u'Due Date': u'24/06/2015 08:15'})
+        browser.find('Submit').click()
+        self.assertEquals({u'due_date': u'2015-06-24T08:15:00'}, browser.json)
