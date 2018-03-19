@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry" autogroup="False">
+
+    <javascript id="++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.js"
+                compression="safe" enabled="True"
+                insert-after="++resource++datetimepicker/js/datetimepicker-2.4.5/jquery.datetimepicker.js" />
+
+    <javascript id="++resource++datetimepicker/js/datetimepicker-2.4.5/jquery.datetimepicker.js" remove="True" />
+
+</object>

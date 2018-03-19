@@ -33,7 +33,9 @@ class BaseDateConverter(converter.BaseDataConverter):
         portal_state = getMultiAdapter((portal, portal.REQUEST),
                                        name=u'plone_portal_state')
         current_language = portal_state.language()
-        widget_format = self.widget.config.get('formats').get(current_language)
+        widget_format = self.widget.config.get('formats').get(
+            current_language,
+            self.widget.config.get('formats').get(current_language[:2]))
         self.transformed_format = transform_js_format(widget_format)
 
     def toWidgetValue(self, value):

@@ -53,11 +53,12 @@ def switch_language(portal, lang):
     if IS_PLONE_5:
         language_tool.addSupportedLanguage("de")
         language_tool.addSupportedLanguage("fr")
-        language_tool.settings.use_combined_language_codes = False
+        language_tool.addSupportedLanguage("fr-ch")
+        language_tool.settings.use_combined_language_codes = True
         language_tool.setDefaultLanguage(lang)
     else:
         language_tool.manage_setLanguageSettings(
-            lang, ['de', 'fr', 'en'],
-            setUseCombinedLanguageCodes=False, startNeutral=False)
+            lang, ['de', 'fr', 'en', 'fr-ch'],
+            setUseCombinedLanguageCodes=True, startNeutral=False)
     portal.setLanguage(lang)
     transaction.commit()

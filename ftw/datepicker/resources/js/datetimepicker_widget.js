@@ -6,7 +6,7 @@ $(function(){
       var lang = $('html').attr('lang');
       var widget_data = field.data("datetimewidget");
       var params = {};
-      if (widget_data[lang]){
+      if (widget_data['formats'][lang]){
           if ("format" in widget_data){
             params['format'] = widget_data["format"][lang];
           }
@@ -14,22 +14,24 @@ $(function(){
             params['format'] = widget_data[lang];
           }
       }
-      else if (widget_data[lang.split('-')[0]]){
-        params['format'] = widget_data[lang.split('-')[0]];
+      else if (widget_data['formats'][lang.split('-')[0]]){
+        params['format'] = widget_data['formats'][lang.split('-')[0]];
 
       }
       else {
           params['format'] = "d.m.Y H:i";
       }
       for (var key in widget_data){
-        if (key != "format"){
+        if (key != "formats"){
           params[key] = widget_data[key];
         }
       }
       if (lang.indexOf('-') > -1){
         lang = lang.split('-')[0];
       }
-      params['lang'] = lang;
+
+      $.datetimepicker.setLocale(lang);
+
       if (field.hasClass('date-field')){
         params['timepicker'] = false;
         params['format'] = params['format'].split(' ')[0];
