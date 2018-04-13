@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.3.2 (unreleased)
+1.3.2 (2018-04-13)
 ------------------
 
 - Fix insert-after reference in the JS registry. [phgross]
