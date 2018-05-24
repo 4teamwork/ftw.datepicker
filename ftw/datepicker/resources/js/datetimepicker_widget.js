@@ -11,7 +11,7 @@ $(function(){
             params['format'] = widget_data["format"][lang];
           }
           else {
-            params['format'] = widget_data[lang];
+            params['format'] = widget_data["formats"][lang];
           }
       }
       else if (widget_data['formats'][lang.split('-')[0]]){

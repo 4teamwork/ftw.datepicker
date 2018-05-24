@@ -5,7 +5,9 @@ Changelog
 1.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix issue with language format selection for deployments
+  with mutliple languages AND non-combined language codes.
+  [lgraf]
 
 
 1.3.2 (2018-04-13)
