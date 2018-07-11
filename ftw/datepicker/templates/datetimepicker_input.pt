@@ -1,4 +1,5 @@
 <input type="text"
+       autocomplete="off"
        tal:attributes="id view/id;
                        name view/name;
                        class view/klass;

@@ -5,7 +5,7 @@ Changelog
 1.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Disable autocompleting and autofilling of datepicker fields. [tarnap]
 
 
 1.3.3 (2018-05-24)
