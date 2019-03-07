@@ -31,16 +31,25 @@
         <value key="deps">jquery</value>
     </records>
 
+    <records prefix="plone.resources/datetimepicker_css"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="css">
+            <element>++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.css</element>
+        </value>
+    </records>
+
     <records prefix="plone.bundles/ftw-datepicker-resources"
              interface='Products.CMFPlone.interfaces.IBundleRegistry'>
         <value key="resources">
             <element>datetimepicker</element>
             <element>datetimepicker_widget</element>
+            <element>datetimepicker_css</element>
         </value>
         <value key="enabled">True</value>
         <value key="depends">plone-legacy</value>
         <value key="compile">False</value>
         <value key="jscompilation">++plone++datetimepicker/ftw-datepicker-compiled.js</value>
+        <value key="csscompilation">++plone++datetimepicker/ftw-datepicker-compiled.css</value>
         <value key="merge_with">default</value>
     </records>
 
