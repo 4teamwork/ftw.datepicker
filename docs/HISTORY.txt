@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.3.5 (unreleased)
+1.4.0 (2019-03-20)
 ------------------
 
 - Move ressources to plone bundle. [busykoala]
