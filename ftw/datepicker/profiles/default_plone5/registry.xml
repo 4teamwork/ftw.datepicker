@@ -1,0 +1,56 @@
+<registry>
+
+    <record name="ftw.datepicker.interfaces.IDatetimeRegistry.formats">
+        <field type="plone.registry.field.Dict">
+            <title>The formats per language</title>
+            <key_type type="plone.registry.field.TextLine"/>
+            <value_type type="plone.registry.field.TextLine"/>
+        </field>
+        <value purge="false">
+            <element key="de">d.m.Y H:i</element>
+            <element key="fr">d/m/Y H:i</element>
+        </value>
+    </record>
+
+    <record name="ftw.datepicker.interfaces.IDatetimeRegistry.various">
+        <field type="plone.registry.field.Text">
+            <title>various</title>
+        </field>
+        <value>{"dayOfWeekStart": 1}</value>
+    </record>
+
+    <records prefix="plone.resources/datetimepicker_widget"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++resource++datetimepicker/js/datetimepicker_widget.js</value>
+        <value key="deps">jquery</value>
+    </records>
+
+    <records prefix="plone.resources/datetimepicker"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.full.min.js</value>
+        <value key="deps">jquery</value>
+    </records>
+
+    <records prefix="plone.resources/datetimepicker_css"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="css">
+            <element>++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.css</element>
+        </value>
+    </records>
+
+    <records prefix="plone.bundles/ftw-datepicker-resources"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources">
+            <element>datetimepicker</element>
+            <element>datetimepicker_widget</element>
+            <element>datetimepicker_css</element>
+        </value>
+        <value key="enabled">True</value>
+        <value key="depends">plone-legacy</value>
+        <value key="compile">False</value>
+        <value key="jscompilation">++plone++datetimepicker/ftw-datepicker-compiled.js</value>
+        <value key="csscompilation">++plone++datetimepicker/ftw-datepicker-compiled.css</value>
+        <value key="merge_with">default</value>
+    </records>
+
+</registry>

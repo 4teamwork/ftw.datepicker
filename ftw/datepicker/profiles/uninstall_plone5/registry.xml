@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<registry>
+    <records prefix="plone.resources/datetimepicker_css"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'
+             remove="True"/>
+    <records prefix="plone.resources/datetimepicker_widget"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'
+             remove="True"/>
+    <records prefix="plone.resources/datetimepicker"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'
+             remove="True"/>
+    <records prefix="plone.bundles/ftw-datepicker-resources"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'
+             remove="True"/>
+</registry>
