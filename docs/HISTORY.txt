@@ -5,7 +5,7 @@ Changelog
 1.4.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add new way of building and loading resources. [busykoala]
 
 
 1.4.0 (2019-03-20)
