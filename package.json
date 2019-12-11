@@ -11,9 +11,10 @@
     "requirejs": "^2.3.6"
   },
   "scripts": {
-        "build": "r.js -o build.js && r.js -o buildcss.js",
-        "build-css": "r.js -o buildcss.js",
-        "build-js": "r.js -o build.js",
-        "watch": "chokidar \"./ftw/datepicker/resources/(*.js|*.css)\" -i \"**/*-compiled.(js|css)\" -c \"/bin/sh -c \\\"if [[ '{path}' = *.js ]]; then r.js -o build.js; else r.js -o buildcss.js; fi;\\\"\""
-    }
+    "build": "r.js -o build.js && r.js -o buildcss.js",
+    "build-css": "r.js -o buildcss.js",
+    "build-js": "r.js -o build.js",
+    "watch": "chokidar \"./ftw/datepicker/resources/(*.js|*.css)\" -i \"**/*-compiled.(js|css)\" -c \"/bin/sh -c \\\"if [[ '{path}' = *.js ]]; then r.js -o build.js; else r.js -o buildcss.js; fi;\\\"\""
+  },
+  "dependencies": {}
 }
