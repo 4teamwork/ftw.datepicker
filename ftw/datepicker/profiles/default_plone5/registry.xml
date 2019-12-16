@@ -19,15 +19,8 @@
         <value>{"dayOfWeekStart": 1}</value>
     </record>
 
-    <records prefix="plone.resources/datetimepicker_css"
-             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-        <value key="css">
-            <element>++resource++datetimepicker/js/datetimepicker-2.5.18/jquery.datetimepicker.css</element>
-        </value>
-    </records>
-
     <records prefix="plone.bundles/ftw-datepicker-resources"
-             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+             interface="Products.CMFPlone.interfaces.IBundleRegistry">
         <value key="enabled">True</value>
         <value key="depends">plone</value>
         <value key="compile">False</value>
