@@ -5,7 +5,7 @@ Changelog
 1.5.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- IResourceRegistry does not exist in plone4. Add condition to "Fix resource bundles" upgrade step. [2e12]
 
 
 1.5.0 (2019-12-16)
