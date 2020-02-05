@@ -7,6 +7,7 @@ Changelog
 
 - IResourceRegistry does not exist in plone4. Add condition to "Fix resource bundles" upgrade step. [2e12]
 - Check AMD support and load module accordingly [tinagerber]
+- Correct wrong references in plone 4 jsregistry [tinagerber]
 
 
 1.5.0 (2019-12-16)
