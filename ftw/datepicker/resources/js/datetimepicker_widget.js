@@ -1,5 +1,14 @@
-$(function(){
-
+(function (factory) {
+    // environment detection
+    if (typeof define === 'function' && define.amd) {
+        // AMD. require the modules we need
+        require(['jquery', 'datetimepicker'], factory);
+    } else {
+        // Browser globals
+        factory(window.jQuery, window.datetimepicker);
+    }
+}(function ($, datetimepicker) {
+  // Use $ and datetimepicker here
   initDateTimePicker = function(){
     $("input.datetimepicker-widget").each(function(i, o){
       var field = $(this);
@@ -51,4 +60,4 @@ $(function(){
     initDateTimePicker();
   });
 
-});
+}));
