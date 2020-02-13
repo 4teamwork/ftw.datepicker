@@ -14,14 +14,21 @@ from ftw.datepicker.interfaces import IDatetimeRegistry
 
 
 class DateTimePickerWidget(widget.HTMLTextInputWidget, Widget):
-    """ Datepicker widget. """
+    """ Datepicker widget.
+
+    :param default_timezone: A Olson DB/pytz timezone identifier or a callback
+                             returning such an identifier.
+    :type default_timezone: String or callback
+    """
     implementsOnly(IDateTimePickerWidget)
 
     klass = u'datetimepicker-widget'
     config = None
+    default_timezone = None
 
-    def __init__(self, request, config=None):
+    def __init__(self, request, config=None, default_timezone=None):
         super(DateTimePickerWidget, self).__init__(request)
+        self.default_timezone = default_timezone
 
         self.loaded_config = config
         if callable(config):
@@ -56,8 +63,8 @@ DatePickerWidget = DateTimePickerWidget
 
 @adapter(IDateTimePickerWidget, IFormLayer)
 @implementer(IFieldWidget)
-def DateTimePickerWidgetFactory(field, request, config=None):
+def DateTimePickerWidgetFactory(field, request, config=None, default_timezone=None):
     """IFieldWidget factory for DateTimePickerWidget."""
-    return FieldWidget(field, DateTimePickerWidget(request, config))
+    return FieldWidget(field, DateTimePickerWidget(request, config, default_timezone))
 
 DatePickerFieldWidget = DateTimePickerWidgetFactory
