@@ -2,6 +2,7 @@ from datetime import datetime
 from ftw.datepicker.converter import DateTimeDataConverter, transform_js_format
 from ftw.datepicker.tests import FunctionalTestCase
 from ftw.datepicker.widget import DateTimePickerWidget
+from pytz import timezone
 from z3c.form.converter import FormatterValidationError
 from z3c.form.testing import TestRequest
 from zope import schema
@@ -11,11 +12,11 @@ class TestDatetimeConverter(FunctionalTestCase):
 
     def setUp(self):
         super(TestDatetimeConverter, self).setUp()
-        request = TestRequest()
+        self.request = TestRequest()
 
         datetime_field = schema.Datetime()
 
-        widget = DateTimePickerWidget(request)
+        widget = DateTimePickerWidget(self.request)
         widget.form = schema.Field()
         self.converter = DateTimeDataConverter(datetime_field, widget)
 
@@ -54,3 +55,25 @@ class TestDatetimeConverter(FunctionalTestCase):
 
         value = self.converter.toFieldValue(u'2015-06-24')
         self.assertEquals(datetime(2015, 6, 24, 0, 0), value)
+
+    def test_converter_uses_callable_widget_timezone(self):
+        zone = timezone('UTC')
+
+        widget = DateTimePickerWidget(self.request, default_timezone=lambda context: 'UTC')
+        widget.form = schema.Field()
+        converter = DateTimeDataConverter(schema.Datetime(), widget)
+
+        value = converter.toFieldValue('24.06.2015 12:00')
+        expected_value = datetime(2015, 6, 24, 12, tzinfo=zone)
+        self.assertEquals(expected_value, value)
+
+    def test_converter_uses_preset_widget_timezone(self):
+        zone = timezone('Europe/Zurich')
+
+        widget = DateTimePickerWidget(self.request, default_timezone='Europe/Zurich')
+        widget.form = schema.Field()
+        converter = DateTimeDataConverter(schema.Datetime(), widget)
+
+        value = converter.toFieldValue('24.06.2015 12:00')
+        expected_value = zone.localize(datetime(2015, 6, 24, 12))
+        self.assertEquals(expected_value, value)
