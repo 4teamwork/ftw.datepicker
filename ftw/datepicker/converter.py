@@ -1,14 +1,17 @@
+from Products.CMFPlone.utils import safe_callable
 from datetime import datetime
 from ftw.datepicker import _
 from ftw.datepicker.interfaces import IDateTimePickerWidget
 from z3c.form import converter
 from z3c.form.converter import FormatterValidationError
 from zope.component import adapts
+from zope.component import getMultiAdapter
+from zope.component.hooks import getSite
 from zope.i18n import translate
 from zope.schema.interfaces import IDate
 from zope.schema.interfaces import IDatetime
-from zope.component.hooks import getSite
-from zope.component import getMultiAdapter
+import pytz
+
 
 JS_DATE_FORMAT_MAPPER = {'d': '%d', 'm': '%m', 'Y': '%Y',
                          'H': '%H', 'i': '%M'}
@@ -52,6 +55,17 @@ class BaseDateConverter(converter.BaseDataConverter):
             datetime_obj = datetime.strptime(value, self.transformed_format)
 
             if datetime_obj.year >= 1900:
+                # Timezone implementation copied from
+                # plone.app.z3cform.converters#DatetimeWidgetConverter
+                default_zone = self.widget.default_timezone
+                zone = (default_zone(self.widget.context)
+                        if safe_callable(default_zone)
+                        else default_zone)
+
+                if zone:
+                    tzinfo = pytz.timezone(zone)
+                    datetime_obj = tzinfo.localize(datetime_obj)
+
                 return datetime_obj
             else:
                 error = translate(_(u'error_datetime_min_year',
