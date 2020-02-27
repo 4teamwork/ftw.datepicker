@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.5.2 (unreleased)
+1.6.0 (2020-02-27)
 ------------------
 
 - Add timezone support to the widget [Nachtalb]
