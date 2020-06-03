@@ -5,7 +5,7 @@ Changelog
 1.6.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix fail on reinstallation on Plone 5 when upgrading from Plone 4 due to weird behaviour of its IDatetimeRegistry.formats field declaration in registry.xml [Nachtalb]
 
 
 1.6.0 (2020-02-27)
