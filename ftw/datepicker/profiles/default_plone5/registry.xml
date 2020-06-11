@@ -4,6 +4,7 @@
         <value purge="false">
             <element key="de">d.m.Y H:i</element>
             <element key="fr">d/m/Y H:i</element>
+            <element key="en">d/m/Y H:i</element>
         </value>
     </record>
 

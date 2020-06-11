@@ -26,9 +26,9 @@ class TestWidget(FunctionalTestCase):
 
     @browsing
     def test_fill_field_with_browser_date_unknown(self, browser):
-        switch_language(self.layer['portal'], 'en')
+        switch_language(self.layer['portal'], 'it')
         browser.login().visit(view='test-z3cform-task')
-        browser.fill({u'Publish Date': u'24.06.2015'})
+        browser.fill({u'Publish Date': u'24/06/2015'})
         browser.find('Submit').click()
         self.assertEquals({u'publish_date': u'2015-06-24'}, browser.json)
 

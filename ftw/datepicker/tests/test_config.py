@@ -17,7 +17,7 @@ class TestWidget(FunctionalTestCase):
         due_date = browser.css('#form-widgets-due_date').first
         widgetdata = json.loads(due_date.attrib['data-datetimewidget'])
         self.assertIn('formats', widgetdata)
-        self.assertEquals({"fr": "d/m/Y H:i", "de": "d.m.Y H:i"},
+        self.assertEquals({"fr": "d/m/Y H:i", "de": "d.m.Y H:i", "en": "d/m/Y H:i"},
                           widgetdata['formats'])
 
     @browsing
