@@ -1,15 +1,25 @@
 <registry>
 
-    <record interface="ftw.datepicker.interfaces.IDatetimeRegistry" field="formats">
+    <record name="ftw.datepicker.interfaces.IDatetimeRegistry.formats">
+        <field type="plone.registry.field.Dict">
+            <title>The formats per language</title>
+            <key_type type="plone.registry.field.TextLine" />
+            <value_type type="plone.registry.field.TextLine" />
+        </field>
         <value purge="false">
             <element key="de">d.m.Y H:i</element>
             <element key="fr">d/m/Y H:i</element>
         </value>
     </record>
 
-    <record interface="ftw.datepicker.interfaces.IDatetimeRegistry" field="various">
+    <record name="ftw.datepicker.interfaces.IDatetimeRegistry.various">
+        <field type="plone.registry.field.Text">
+            <title>various</title>
+        </field>
         <value>{"dayOfWeekStart": 1}</value>
     </record>
+
+
 
     <records prefix="plone.bundles/ftw-datepicker-resources"
              interface="Products.CMFPlone.interfaces.IBundleRegistry">
