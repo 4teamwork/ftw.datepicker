@@ -5,7 +5,7 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix reinstallation of the package if it was initially installed on 1.1.0 and 1.1.1 (see #30 for more details) [Nachtalb, maethu]
 
 
 1.6.1 (2020-07-29)
