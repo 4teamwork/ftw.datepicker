@@ -1,0 +1,7 @@
+<registry>
+  <record interface="ftw.datepicker.interfaces.IDatetimeRegistry" field="formats">
+    <value purge="false">
+      <element key="en">d/m/Y H:i</element>
+    </value>
+  </record>
+</registry>
